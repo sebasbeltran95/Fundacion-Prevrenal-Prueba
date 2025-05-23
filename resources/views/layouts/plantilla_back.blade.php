@@ -38,10 +38,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @if (Request::is('contactanosBack')) active @endif"
-                                href="#">
+                            <a class="nav-link @if (Request::is('categoria')) active @endif"
+                                href="{{ route('categoria') }}">
                                 <i class="fas fa-address-book"></i>
-                                Contactanos
+                                Categoria
                             </a>
                         </li>
                         <li class="nav-item dropdown">
