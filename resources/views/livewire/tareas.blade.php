@@ -211,29 +211,97 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="modal fade" id="Modaleditar" tabindex="-1" wire:ignore.self>
-                        <div class="modal-dialog">
+                        <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h4 class="modal-title">Editar Categoria</h4>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="form-group">
-                                        <label>Nombre</label>
-                                        <input type="text" class="form-control" wire:model="namex">
-                                    </div>
-                                    <div class="form-group mb-2">
-                                        <label>Estado</label>
-                                        <select class="form-select" wire:model="statusx">
-                                            <option value="">Seleccione una opción...</option>
-                                            <option value="2">Activo</option>
-                                            <option value="1">Inactivo</option>
-                                        </select>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="@error('titulox') text-danger @enderror">Titulo</label>
+                                                    <input type="text" class="form-control @error('titulox') text-danger @enderror" wire:model="titulox">
+                                                    <i class="text-danger">
+                                                        @error('titulox') {{ $message }} @enderror
+                                                    </i>
+                                                </div>
+                                                <div class="form-group mb-2">
+                                                    <label class="@error('descripcionx') text-danger @enderror">Descripcion</label>
+                                                    <textarea class="form-control @error('descripcionx') text-danger @enderror" wire:model="descripcionx" rows="4"></textarea>
+                                                        <i class="text-danger">
+                                                            @error('descripcionx') {{ $message }} @enderror
+                                                        </i>
+                                                </div>
+                                                <div class="form-group mb-2">
+                                                    <label class="@error('id_estadox') text-danger @enderror">Estado</label>
+                                                    <select class="form-select @error('id_estadox') text-danger @enderror" wire:model="id_estadox">
+                                                        <option value="">Seleccione una opción...</option>
+                                                        <option value="2">Activo</option>
+                                                        <option value="1">Inactivo</option>
+                                                    </select>
+                                                    <i class="text-danger">
+                                                        @error('id_estadox') {{ $message }} @enderror
+                                                    </i>
+                                                </div>
+                                                <div class="form-group mb-2">
+                                                    <label class="@error('id_prioridadx') text-danger @enderror">Priodidad</label>
+                                                    <select class="form-select @error('id_prioridadx') text-danger @enderror" wire:model="id_prioridadx">
+                                                        <option value="">Seleccione una opción...</option>
+                                                        <option value="2">Activo</option>
+                                                        <option value="1">Inactivo</option>
+                                                    </select>
+                                                    <i class="text-danger">
+                                                        @error('id_prioridadx') {{ $message }} @enderror
+                                                    </i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group mb-2">
+                                                    <label class="@error('id_categoriax') text-danger @enderror">Categoria</label>
+                                                    <select class="form-select @error('id_categoriax') text-danger @enderror" wire:model="id_categoriax">
+                                                        <option value="">Seleccione una opción...</option>
+                                                        <option value="2">Activo</option>
+                                                        <option value="1">Inactivo</option>
+                                                    </select>
+                                                    <i class="text-danger">
+                                                        @error('id_categoriax') {{ $message }} @enderror
+                                                    </i>
+                                                </div>
+                                                <div class="form-group mb-2">
+                                                    <label class="@error('id_proyectosx') text-danger @enderror">Proyecto</label>
+                                                    <select class="form-select @error('id_proyectosx') text-danger @enderror" wire:model="id_proyectosx">
+                                                        <option value="">Seleccione una opción...</option>
+                                                        <option value="2">Activo</option>
+                                                        <option value="1">Inactivo</option>
+                                                    </select>
+                                                    <i class="text-danger">
+                                                        @error('id_proyectosx') {{ $message }} @enderror
+                                                    </i>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="@error('fecha_iniciox') text-danger @enderror">Fecha Inicio</label>
+                                                    <input type="date" class="form-control @error('fecha_iniciox') text-danger @enderror" wire:model="fecha_iniciox">
+                                                    <i class="text-danger">
+                                                        @error('fecha_iniciox') {{ $message }} @enderror
+                                                    </i>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="@error('fecha_finx') text-danger @enderror">Fecha Fin</label>
+                                                    <input type="date" class="form-control @error('fecha_finx') text-danger @enderror" wire:model="fecha_finx">
+                                                    <i class="text-danger">
+                                                        @error('fecha_finx') {{ $message }} @enderror
+                                                    </i>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-primary" wire:click="actua">Editar
-                                        Categoria</button>
+                                        Tarea</button>
                                     <button type="button" class="btn btn-danger"
                                         data-bs-dismiss="modal">Cerrar</button>
                                 </div>
