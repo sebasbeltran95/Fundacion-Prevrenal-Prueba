@@ -36,7 +36,7 @@
                                     <td class="text-center">{{ $cat->descripcion }}</td>
                                     <td class="text-center">{{ $cat->fecha_inicio }}</td>
                                     <td class="text-center">{{ $cat->fecha_fin }}</td>
-                                    <td class="text-center">{{ $cat->id_estado }}</td>
+                                    <td class="text-center">{{ $estados::find($cat->id_estado)->nombre}}</td>
                                     <td class="d-flex justify-content-center">
                                         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                                             <button type="button" class="btn btn-sm btn-warning"
