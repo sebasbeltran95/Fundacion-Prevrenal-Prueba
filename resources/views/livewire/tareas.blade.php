@@ -50,11 +50,11 @@
                                 <tr>
                                     <td class="text-center">{{ $cat->titulo }}</td>
                                     <td class="text-center">{{ $cat->descripcion }}</td>
-                                     <td class="text-center">{{ $estados::find($cat->id_estado)->nombre}}</td>
-                                    <td class="text-center">{{ $cat->id_prioridad }}</td>
-                                    <td class="text-center">{{ $cat->id_categoria }}</td>
-                                    <td class="text-center">{{ $cat->id_user }}</td>
-                                    <td class="text-center">{{ $cat->id_proyectos }}</td>
+                                    <td class="text-center">{{ $estados::find($cat->id_estado)->nombre}}</td>
+                                    <td class="text-center">{{ $prioridades::find($cat->id_prioridad)->nombre}}</td>
+                                    <td class="text-center">{{ $categorias::find($cat->id_categoria)->nombre}}</td>
+                                    <td class="text-center">{{ $usuario::find($cat->id_user)->name}}</td>
+                                    <td class="text-center">{{ $proyectos::find($cat->id_proyectos)->titulo}}</td>
                                     <td class="text-center">{{ $cat->fecha_inicio }}</td>
                                     <td class="text-center">{{ $cat->fecha_fin }}</td>
                                     <td class="d-flex justify-content-center">

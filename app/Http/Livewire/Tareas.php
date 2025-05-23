@@ -2,8 +2,12 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Categorias;
 use App\Models\Estados;
+use App\Models\Prioridades;
+use App\Models\Proyectos;
 use App\Models\Tareas as ModelsTareas;
+use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Database\QueryException;
@@ -17,6 +21,10 @@ class Tareas extends Component
     public $idx, $titulox, $descripcionx, $id_estadox, $id_prioridadx, $id_categoriax, $id_userx,  $id_proyectosx, $fecha_iniciox, $fecha_finx;
     public $search, $search_fecha_inicio, $search_fecha_fin;
     public $estado, $estados;
+    public $prioridad, $prioridades;
+    public $categoria, $categorias;
+    public $usuario;
+    public $proyecto, $proyectos;
 
     protected $listeners = ['render', 'delete'];
 
@@ -178,6 +186,13 @@ class Tareas extends Component
     {
         $this->estado = Estados::all();
         $this->estados = Estados::class;
+        $this->prioridad =  Prioridades::all();
+        $this->prioridades = Prioridades::class;
+        $this->categoria = Categorias::all();
+        $this->categorias = Categorias::class;
+        $this->usuario = User::class;
+        $this->proyecto = Proyectos::all();
+        $this->proyectos = Proyectos::class;
         return view('livewire.tareas')->extends('layouts.plantilla_back')->section('contenido');
     }
 }
