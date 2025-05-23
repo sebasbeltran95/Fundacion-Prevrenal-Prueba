@@ -23,13 +23,13 @@
                             <th colspan="3">
                                 <div class="input-group input-group-sm">
                                     <input type="date" class="form-control"
-                                    wire:model="search">
+                                    wire:model="search_fecha_inicio">
                                 </div>
                             </th>
                             <th colspan="3">
                                 <div class="input-group input-group-sm">
                                     <input type="date" class="form-control"
-                                    wire:model="search">
+                                    wire:model="search_fecha_fin">
                                 </div>
                             </th>
                             <tr>

@@ -14,7 +14,7 @@ class Tareas extends Component
     protected $paginationTheme = 'bootstrap';
     public $titulo, $descripcion, $id_estado, $id_prioridad, $id_categoria, $id_user,  $id_proyectos, $fecha_inicio, $fecha_fin;
     public $idx, $titulox, $descripcionx, $id_estadox, $id_prioridadx, $id_categoriax, $id_userx,  $id_proyectosx, $fecha_iniciox, $fecha_finx;
-    public $search;
+    public $search, $search_fecha_inicio, $search_fecha_fin;
 
     protected $listeners = ['render', 'delete'];
 
@@ -25,14 +25,22 @@ class Tareas extends Component
 
     public function getTareasProperty()
     {
-        if($this->search == ""){
-            return ModelsTareas::orderBy('id','DESC')->paginate(5);
+
+        if($this->search_fecha_inicio == '' && $this->search_fecha_fin == ''){
+            if($this->search == ""){
+                return ModelsTareas::orderBy('id','DESC')->paginate(5);
+            } else {
+                return ModelsTareas::
+                orWhere('titulo', 'LIKE', '%'.$this->search.'%')
+                ->orWhere('descripcion', 'LIKE', '%'.$this->search.'%')
+                ->paginate(3);
+            } 
         } else {
-            return ModelsTareas::
-            orWhere('titulo', 'LIKE', '%'.$this->search.'%')
-            ->orWhere('descripcion', 'LIKE', '%'.$this->search.'%')
+           return ModelsTareas::where('fecha_inicio', $this->search_fecha_inicio)
+            ->where('fecha_fin', $this->search_fecha_fin)
             ->paginate(3);
-        } 
+
+        }
     }
 
     public function crear()
