@@ -122,8 +122,9 @@
                                         <label class="@error('id_prioridad') text-danger @enderror">Priodidad</label>
                                         <select class="form-select @error('id_prioridad') text-danger @enderror" wire:model="id_prioridad">
                                             <option value="">Seleccione una opción...</option>
-                                            <option value="2">Activo</option>
-                                            <option value="1">Inactivo</option>
+                                            @foreach ($prioridad as $pri)
+                                                <option value="{{$pri->id}}">{{ $pri->nombre }}</option>
+                                            @endforeach
                                         </select>
                                         <i class="text-danger">
                                             @error('id_prioridad') {{ $message }} @enderror
@@ -135,8 +136,9 @@
                                         <label class="@error('id_categoria') text-danger @enderror">Categoria</label>
                                         <select class="form-select @error('id_categoria') text-danger @enderror" wire:model="id_categoria">
                                             <option value="">Seleccione una opción...</option>
-                                            <option value="2">Activo</option>
-                                            <option value="1">Inactivo</option>
+                                            @foreach ($categoria as $cate)
+                                                <option value="{{$cate->id}}">{{ $cate->nombre }}</option>
+                                            @endforeach
                                         </select>
                                         <i class="text-danger">
                                             @error('id_categoria') {{ $message }} @enderror
@@ -146,8 +148,9 @@
                                         <label class="@error('id_proyectos') text-danger @enderror">Proyecto</label>
                                         <select class="form-select @error('id_proyectos') text-danger @enderror" wire:model="id_proyectos">
                                             <option value="">Seleccione una opción...</option>
-                                            <option value="2">Activo</option>
-                                            <option value="1">Inactivo</option>
+                                            @foreach ($proyecto as $proy)
+                                                <option value="{{$proy->id}}">{{ $proy->titulo }}</option>
+                                            @endforeach
                                         </select>
                                         <i class="text-danger">
                                             @error('id_proyectos') {{ $message }} @enderror
@@ -225,8 +228,9 @@
                                                     <label class="@error('id_prioridadx') text-danger @enderror">Priodidad</label>
                                                     <select class="form-select @error('id_prioridadx') text-danger @enderror" wire:model="id_prioridadx">
                                                         <option value="">Seleccione una opción...</option>
-                                                        <option value="2">Activo</option>
-                                                        <option value="1">Inactivo</option>
+                                                        @foreach ($prioridad as $pri)
+                                                            <option value="{{$pri->id}}">{{ $pri->nombre }}</option>
+                                                        @endforeach
                                                     </select>
                                                     <i class="text-danger">
                                                         @error('id_prioridadx') {{ $message }} @enderror
@@ -238,8 +242,9 @@
                                                     <label class="@error('id_categoriax') text-danger @enderror">Categoria</label>
                                                     <select class="form-select @error('id_categoriax') text-danger @enderror" wire:model="id_categoriax">
                                                         <option value="">Seleccione una opción...</option>
-                                                        <option value="2">Activo</option>
-                                                        <option value="1">Inactivo</option>
+                                                        @foreach ($categoria as $cate)
+                                                            <option value="{{$cate->id}}">{{ $cate->nombre }}</option>
+                                                        @endforeach
                                                     </select>
                                                     <i class="text-danger">
                                                         @error('id_categoriax') {{ $message }} @enderror
@@ -249,8 +254,9 @@
                                                     <label class="@error('id_proyectosx') text-danger @enderror">Proyecto</label>
                                                     <select class="form-select @error('id_proyectosx') text-danger @enderror" wire:model="id_proyectosx">
                                                         <option value="">Seleccione una opción...</option>
-                                                        <option value="2">Activo</option>
-                                                        <option value="1">Inactivo</option>
+                                                        @foreach ($proyecto as $proy)
+                                                            <option value="{{$proy->id}}">{{ $proy->titulo }}</option>
+                                                        @endforeach
                                                     </select>
                                                     <i class="text-danger">
                                                         @error('id_proyectosx') {{ $message }} @enderror
