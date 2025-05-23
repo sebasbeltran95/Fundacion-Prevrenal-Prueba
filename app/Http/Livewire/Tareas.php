@@ -91,6 +91,10 @@ class Tareas extends Component
     }
 
 
+        public function delete($post)
+    {
+        ModelsTareas::where('id',$post)->first()->delete();
+    }
 
     public function render()
     {

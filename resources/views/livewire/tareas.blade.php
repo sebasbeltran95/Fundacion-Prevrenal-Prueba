@@ -13,10 +13,22 @@
                 <div class="table-responsive">
                     <table class="table table-hover table-bordered table-sm">
                         <thead>
-                            <th colspan="12">
+                            <th colspan="4">
                                 <div class="input-group input-group-sm">
                                     <input type="text" class="form-control"
                                     placeholder="Buscar..."
+                                    wire:model="search">
+                                </div>
+                            </th>
+                            <th colspan="3">
+                                <div class="input-group input-group-sm">
+                                    <input type="date" class="form-control"
+                                    wire:model="search">
+                                </div>
+                            </th>
+                            <th colspan="3">
+                                <div class="input-group input-group-sm">
+                                    <input type="date" class="form-control"
                                     wire:model="search">
                                 </div>
                             </th>
@@ -156,7 +168,7 @@
                                         </i>
                                     </div>
                                     <div class="form-group">
-                                        <label class="@error('fecha_fin') text-danger @enderror">Fecha Fino</label>
+                                        <label class="@error('fecha_fin') text-danger @enderror">Fecha Fin</label>
                                         <input type="date" class="form-control @error('fecha_fin') text-danger @enderror" wire:model="fecha_fin">
                                         <i class="text-danger">
                                             @error('fecha_fin') {{ $message }} @enderror
@@ -254,7 +266,7 @@
                 confirmButtonText: "SI"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    livewire.emitTo('category', 'delete', postId);
+                    livewire.emitTo('tareas', 'delete', postId);
 
                     Swal.fire({
                     title: "!Eliminado!",
