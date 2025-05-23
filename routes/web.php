@@ -2,6 +2,8 @@
 
 use App\Http\Livewire\Categoria;
 use App\Http\Livewire\Estados;
+use App\Http\Livewire\Prioridades;
+use App\Http\Livewire\Proyectos;
 use App\Http\Livewire\Tareas;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -25,8 +27,8 @@ Route::group(['middleware' => ['auth']], function (){
     Route::get('/tareas', Tareas::class)->name('tareas');
     Route::get('/categoria', Categoria::class)->name('categoria');
     Route::get('/estados', Estados::class)->name('estados');
-    // Route::get('/perfil', Perfil::class)->name('perfil');
-    // Route::get('/user', Usuarios::class)->name('user');
+    Route::get('/prioridades', Prioridades::class)->name('prioridades');
+    Route::get('/proyectos', Proyectos::class)->name('proyectos');
     // Route::get('/contactanosBack', ContactanosBack::class)->name('contactanosBack');
     // Route::get('/contactanosDashboard', ContactanosDashboard::class)->name('contactanosDashboard');
     // Route::get('/contactanosHistorial', ContactanosHistorial::class)->name('contactanosHistorial');

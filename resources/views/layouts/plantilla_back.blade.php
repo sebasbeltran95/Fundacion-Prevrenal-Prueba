@@ -51,6 +51,20 @@
                                 Estdos
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link @if (Request::is('prioridades')) active @endif"
+                                href="{{ route('prioridades') }}">
+                                <i class="fas fa-address-book"></i>
+                                Prioridades
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @if (Request::is('proyectos')) active @endif"
+                                href="{{ route('proyectos') }}">
+                                <i class="fas fa-address-book"></i>
+                                Proyectos
+                            </a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-user"></i> usuarios

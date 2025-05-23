@@ -16,12 +16,7 @@ class Estados extends Model
 
     public $fillable = [
         'id',
-        'titulo',
-        'descripcion',
-        'fecha_inicio',
-        'fecha_fin',
-        'fecha_creacion',
-        'id_estado',
+        'nombre',
         'created_at',
         'updated_at'
     ];

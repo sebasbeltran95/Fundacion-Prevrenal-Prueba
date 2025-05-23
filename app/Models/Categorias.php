@@ -17,7 +17,6 @@ class Categorias extends Model
     public $fillable = [
         'id',
         'nombre',
-        'descripcion',
         'created_at',
         'updated_at'
     ];
