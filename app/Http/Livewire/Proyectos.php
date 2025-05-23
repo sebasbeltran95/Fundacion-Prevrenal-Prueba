@@ -32,7 +32,8 @@ class Proyectos extends Component
             return ModelsProyectos::orderBy('id','DESC')->paginate(5);
         } else {
             return ModelsProyectos::
-            orWhere('nombre', 'LIKE', '%'.$this->search.'%')
+            orWhere('titulo', 'LIKE', '%'.$this->search.'%')
+            ->orWhere('descripcion', 'LIKE', '%'.$this->search.'%')
             ->paginate(3);
         } 
     }
@@ -42,20 +43,35 @@ class Proyectos extends Component
         try { 
 
             $this->validate([
-                'nombre' => 'required|string|max:255',
+                'titulo' => 'required|string|max:255',
+                'descripcion' => 'required|string|max:255',
+                'fecha_inicio' => 'required',
+                'fecha_fin' => 'required',
+                'id_estado' => 'required|numeric',
             ],[
-                'nombre.required' => 'El campo Nombre es obligatorio',
-                'nombre.string' => 'El campo Nombre recibe solo cadena de texto',
-                'nombre.max' => 'El campo Nombre debe contener maximo 255 caracteres',
+                'titulo.required' => 'El campo Titulo es obligatorio',
+                'titulo.string' => 'El campo Titulo recibe solo cadena de texto',
+                'titulo.max' => 'El campo Titulo debe contener maximo 255 caracteres',
+                'descripcion.required' => 'El campo Descripcion es obligatorio',
+                'descripcion.string' => 'El campo Descripcion recibe solo cadena de texto',
+                'descripcion.max' => 'El campo Descripcion debe contener maximo 255 caracteres',
+                'fecha_inicio.required' => 'El campo Fehca Inicio es obligatorio',
+                'fecha_fin.required' => 'El campo Fecha Fin es obligatorio',
+                'id_estado.required' => 'El campo Estado es obligatorio',
+                'id_estado.numeric' => 'El campo Estado recibe solo numeros enteros',
             ]);
 
         
             $user = new ModelsProyectos();
-            $user->nombre =  $this->nombre;
+            $user->titulo =  $this->titulo;
+            $user->descripcion =  $this->descripcion;
+            $user->fecha_inicio =  $this->fecha_inicio;
+            $user->fecha_fin =  $this->fecha_fin;
+            $user->id_estado =  $this->id_estado;
             $user->save();
 
             $this->reset();
-            $msj = ['!Registrado!', 'Se registro la Categoria', 'success'];
+            $msj = ['!Registrado!', 'Se registro el proyecto', 'success'];
             $this->emit('ok', $msj);
 
         } catch (QueryException $e) {
@@ -70,7 +86,11 @@ class Proyectos extends Component
     public function cargacategory($obj)
     {
         $this->idx =  $obj['id'];
-        $this->nombrex =  $obj['nombre'];
+        $this->titulox =  $obj['titulo'];
+        $this->descripcionx =  $obj['descripcion'];
+        $this->fecha_iniciox =  $obj['fecha_inicio'];
+        $this->fecha_finx =  $obj['fecha_fin'];
+        $this->id_estadox =  $obj['id_estado'];
     }
 
 
@@ -78,20 +98,34 @@ class Proyectos extends Component
     {
         try { 
 
-
             $this->validate([
-                'nombrex' => 'required|string|max:255',
+                'titulox' => 'required|string|max:255',
+                'descripcionx' => 'required|string|max:255',
+                'fecha_iniciox' => 'required',
+                'fecha_finx' => 'required',
+                'id_estadox' => 'required|numeric',
             ],[
-                'nombrex.required' => 'El campo Nombre es obligatorio',
-                'nombrex.string' => 'El campo Nombre recibe solo cadena de texto',
-                'nombrex.max' => 'El campo Nombre debe contener maximo 255 caracteres',
+                'titulox.required' => 'El campo Titulo es obligatorio',
+                'titulox.string' => 'El campo Titulo recibe solo cadena de texto',
+                'titulox.max' => 'El campo Titulo debe contener maximo 255 caracteres',
+                'descripcionx.required' => 'El campo Descripcion es obligatorio',
+                'descripcionx.string' => 'El campo Descripcion recibe solo cadena de texto',
+                'descripcionx.max' => 'El campo Descripcion debe contener maximo 255 caracteres',
+                'fecha_iniciox.required' => 'El campo Fehca Inicio es obligatorio',
+                'fecha_finx.required' => 'El campo Fecha Fin es obligatorio',
+                'id_estadox.required' => 'El campo Estado es obligatorio',
+                'id_estadox.numeric' => 'El campo Estado recibe solo numeros enteros',
             ]);
 
             $data = ModelsProyectos::find($this->idx);
-            $data->nombre = $this->nombrex;
+            $data->titulo = $this->titulox;
+            $data->descripcion = $this->descripcionx;
+            $data->fecha_inicio = $this->fecha_iniciox;
+            $data->fecha_fin = $this->fecha_finx;
+            $data->id_estado = $this->id_estadox;
     
             $data->save();
-            $msj = ['!Actualizado!', 'Se actualizo la Categoria', 'success'];
+            $msj = ['!Actualizado!', 'Se actualizo el proyecto', 'success'];
             $this->emit('ok', $msj);
 
           } catch (QueryException $e) {

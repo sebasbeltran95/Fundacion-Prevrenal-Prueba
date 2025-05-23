@@ -73,33 +73,33 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="@error('titulox') text-danger @enderror">Titulo</label>
-                                        <input type="text" class="form-control @error('titulox') text-danger @enderror" wire:model="titulox">
+                                        <label class="@error('titulo') text-danger @enderror">Titulo</label>
+                                        <input type="text" class="form-control @error('titulo') text-danger @enderror" wire:model="titulo">
                                         <i class="text-danger">
-                                            @error('titulox') {{ $message }} @enderror
+                                            @error('titulo') {{ $message }} @enderror
                                         </i>
                                     </div>
                                     <div class="form-group mb-2">
-                                        <label class="@error('descripcionx') text-danger @enderror">Descripcion</label>
-                                        <textarea class="form-control @error('descripcionx') text-danger @enderror" wire:model="descripcionx" rows="4"></textarea>
+                                        <label class="@error('descripcion') text-danger @enderror">Descripcion</label>
+                                        <textarea class="form-control @error('descripcion') text-danger @enderror" wire:model="descripcion" rows="4"></textarea>
                                             <i class="text-danger">
-                                                @error('descripcionx') {{ $message }} @enderror
+                                                @error('descripcion') {{ $message }} @enderror
                                             </i>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="@error('fecha_iniciox') text-danger @enderror">Fecha Inicio</label>
-                                        <input type="date" class="form-control @error('fecha_iniciox') text-danger @enderror" wire:model="fecha_iniciox">
+                                        <label class="@error('fecha_inicio') text-danger @enderror">Fecha Inicio</label>
+                                        <input type="date" class="form-control @error('fecha_inicio') text-danger @enderror" wire:model="fecha_inicio">
                                         <i class="text-danger">
-                                            @error('fecha_iniciox') {{ $message }} @enderror
+                                            @error('fecha_inicio') {{ $message }} @enderror
                                         </i>
                                     </div>
                                     <div class="form-group">
-                                        <label class="@error('fecha_finx') text-danger @enderror">Fecha Fin</label>
-                                        <input type="date" class="form-control @error('fecha_finx') text-danger @enderror" wire:model="fecha_finx">
+                                        <label class="@error('fecha_fin') text-danger @enderror">Fecha Fin</label>
+                                        <input type="date" class="form-control @error('fecha_fin') text-danger @enderror" wire:model="fecha_fin">
                                         <i class="text-danger">
-                                            @error('fecha_finx') {{ $message }} @enderror
+                                            @error('fecha_fin') {{ $message }} @enderror
                                         </i>
                                     </div>
                                     <div class="form-group">
@@ -133,19 +133,60 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="modal fade" id="Modaleditar" tabindex="-1" wire:ignore.self>
-                        <div class="modal-dialog">
+                        <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h4 class="modal-title">Editar Proyecto</h4>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="form-group">
-                                        <label class="@error('nombrex') text-danger @enderror">Nombre</label>
-                                        <input type="text" class="form-control @error('nombrex') text-danger @enderror" wire:model="nombrex">
-                                        <i class="text-danger">
-                                            @error('nombrex') {{ $message }} @enderror
-                                        </i>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="@error('titulox') text-danger @enderror">Titulo</label>
+                                                    <input type="text" class="form-control @error('titulox') text-danger @enderror" wire:model="titulox">
+                                                    <i class="text-danger">
+                                                        @error('titulox') {{ $message }} @enderror
+                                                    </i>
+                                                </div>
+                                                <div class="form-group mb-2">
+                                                    <label class="@error('descripcionx') text-danger @enderror">Descripcion</label>
+                                                    <textarea class="form-control @error('descripcionx') text-danger @enderror" wire:model="descripcionx" rows="4"></textarea>
+                                                        <i class="text-danger">
+                                                            @error('descripcionx') {{ $message }} @enderror
+                                                        </i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="@error('fecha_iniciox') text-danger @enderror">Fecha Inicio</label>
+                                                    <input type="date" class="form-control @error('fecha_iniciox') text-danger @enderror" wire:model="fecha_iniciox">
+                                                    <i class="text-danger">
+                                                        @error('fecha_iniciox') {{ $message }} @enderror
+                                                    </i>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="@error('fecha_finx') text-danger @enderror">Fecha Fin</label>
+                                                    <input type="date" class="form-control @error('fecha_finx') text-danger @enderror" wire:model="fecha_finx">
+                                                    <i class="text-danger">
+                                                        @error('fecha_finx') {{ $message }} @enderror
+                                                    </i>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="@error('id_estadox') text-danger @enderror">Estado</label>
+                                                    <select class="form-select @error('id_estadox') text-danger @enderror" wire:model="id_estadox">
+                                                        <option value="">Seleccione una opción...</option>
+                                                        @foreach ($estado as $est)
+                                                            <option value="{{$est->id}}">{{ $est->nombre }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <i class="text-danger">
+                                                        @error('id_estadox') {{ $message }} @enderror
+                                                    </i>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
