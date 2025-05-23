@@ -1,3 +1,60 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Login</title>
+        <meta name="keywords" content="fondo garantias del cafe, cdt, garantais, FGC">
+        <meta name="description" content="fondo garantias del cafe se encanrga de ser codeudor del cliente ">
+        <meta name="author" content="Sebastian Beltran Zapata">
+        <link rel="icon" href="{{ asset('img/favicon.png') }}" type="" />
+        <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
+    <body>
+        <div class="wrapper fadeInDown">
+            <div id="formContent">
+                {{--  <!-- Icon -->  --}}
+                <div class="fadeIn first">
+                    <img src="{{ asset('img/logo.png') }}" id="icon" alt="User Icon" />
+                </div>
+                {{--  <!-- Login Form -->  --}}
+                <form class="box" method="POST" action="{{ route('login') }}">
+                    @csrf
+                    {{--  <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>  --}}
+                    <input id="email" type="text" class="fadeIn second @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Correo Electronico">
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                    {{--  <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>  --}}
+                    <input id="password" type="password" class="fadeIn third @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Contraseña">
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                    <input type="submit" class="fadeIn fourth" value="Ingresar">
+                </form>
+                {{--  <!-- Remind Passowrd -->  --}}
+                <div id="formFooter">
+                    <a class="btn btn-link" href="register">Register</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+
+
+
+{{--  
 @extends('layouts.app')
 
 @section('content')
@@ -70,4 +127,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection  --}}

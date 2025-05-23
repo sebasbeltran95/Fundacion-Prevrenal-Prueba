@@ -1,16 +1,31 @@
 <?php
 
+use App\Http\Livewire\Tareas;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 // Auth::routes(['register' => false]);
 
+Route::get('/',function(){ return redirect('login'); });
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::group(['middleware' => ['auth']], function (){
+    Route::get('/tareas', Tareas::class)->name('tareas');
+    // Route::get('/posts', Posts::class)->name('posts');
+    // Route::get('/category', Category::class)->name('category');
+    // Route::get('/perfil', Perfil::class)->name('perfil');
+    // Route::get('/user', Usuarios::class)->name('user');
+    // Route::get('/contactanosBack', ContactanosBack::class)->name('contactanosBack');
+    // Route::get('/contactanosDashboard', ContactanosDashboard::class)->name('contactanosDashboard');
+    // Route::get('/contactanosHistorial', ContactanosHistorial::class)->name('contactanosHistorial');
+});
