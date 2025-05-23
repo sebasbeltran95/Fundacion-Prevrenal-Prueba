@@ -18,8 +18,6 @@ class Tareas extends Model
         'id',
         'titulo',
         'descripcion',
-        'fecha_creacion',
-        'fecha_vencimiento',
         'id_estado',
         'id_prioridad',
         'id_categoria',
