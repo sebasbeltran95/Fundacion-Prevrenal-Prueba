@@ -50,21 +50,13 @@
                                 <tr>
                                     <td class="text-center">{{ $cat->titulo }}</td>
                                     <td class="text-center">{{ $cat->descripcion }}</td>
-                                    <td class="text-center">{{ $cat->id_estado }}</td>
+                                     <td class="text-center">{{ $estados::find($cat->id_estado)->nombre}}</td>
                                     <td class="text-center">{{ $cat->id_prioridad }}</td>
                                     <td class="text-center">{{ $cat->id_categoria }}</td>
                                     <td class="text-center">{{ $cat->id_user }}</td>
                                     <td class="text-center">{{ $cat->id_proyectos }}</td>
                                     <td class="text-center">{{ $cat->fecha_inicio }}</td>
                                     <td class="text-center">{{ $cat->fecha_fin }}</td>
-                                    {{--  <td class="text-center">
-                                        <button type="button" class="btn btn-primary" wire:click="cargarURL({{$cat}})" data-bs-toggle="modal" data-bs-target="#url"><i class="fab fa-sistrix"></i></button>
-                                    </td>
-                                    @if ($cat->status == "2")
-                                        <td class="text-center"><i class="fas fa-eye"></i></td>
-                                    @else
-                                        <td class="text-center"><i class="fas fa-eye-slash"></i></td>
-                                    @endif  --}}
                                     <td class="d-flex justify-content-center">
                                         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                                             <button type="button" class="btn btn-sm btn-warning"
@@ -114,12 +106,13 @@
                                                 @error('descripcion') {{ $message }} @enderror
                                             </i>
                                     </div>
-                                    <div class="form-group mb-2">
+                                    <div class="form-group">
                                         <label class="@error('id_estado') text-danger @enderror">Estado</label>
                                         <select class="form-select @error('id_estado') text-danger @enderror" wire:model="id_estado">
                                             <option value="">Seleccione una opción...</option>
-                                            <option value="2">Activo</option>
-                                            <option value="1">Inactivo</option>
+                                            @foreach ($estado as $est)
+                                                <option value="{{$est->id}}">{{ $est->nombre }}</option>
+                                            @endforeach
                                         </select>
                                         <i class="text-danger">
                                             @error('id_estado') {{ $message }} @enderror
@@ -187,25 +180,6 @@
         </div>
         {{-- Fin modal crear categoria --}}
 
-        {{--  modal URL   --}}
-        <div class="modal fade" id="url" tabindex="-1" wire:ignore.self>
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title fs-5">Cuerpo del Post</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        {{--  <p style="text-align: justify" >http://127.0.0.1:8000/PostsCategorias/{{$descripcion_url}}</p>  --}}
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                    </div>
-                </div>
-            </div>
-        </div> 
-        {{--  modal URL   --}}
-
         {{--  editar   --}}
         <div class="container-fluid">
             <div class="row">
@@ -235,12 +209,13 @@
                                                             @error('descripcionx') {{ $message }} @enderror
                                                         </i>
                                                 </div>
-                                                <div class="form-group mb-2">
+                                                <div class="form-group">
                                                     <label class="@error('id_estadox') text-danger @enderror">Estado</label>
                                                     <select class="form-select @error('id_estadox') text-danger @enderror" wire:model="id_estadox">
                                                         <option value="">Seleccione una opción...</option>
-                                                        <option value="2">Activo</option>
-                                                        <option value="1">Inactivo</option>
+                                                        @foreach ($estado as $est)
+                                                            <option value="{{$est->id}}">{{ $est->nombre }}</option>
+                                                        @endforeach
                                                     </select>
                                                     <i class="text-danger">
                                                         @error('id_estadox') {{ $message }} @enderror

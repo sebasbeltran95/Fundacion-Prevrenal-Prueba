@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Estados;
 use App\Models\Tareas as ModelsTareas;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -15,6 +16,7 @@ class Tareas extends Component
     public $titulo, $descripcion, $id_estado, $id_prioridad, $id_categoria, $id_user,  $id_proyectos, $fecha_inicio, $fecha_fin;
     public $idx, $titulox, $descripcionx, $id_estadox, $id_prioridadx, $id_categoriax, $id_userx,  $id_proyectosx, $fecha_iniciox, $fecha_finx;
     public $search, $search_fecha_inicio, $search_fecha_fin;
+    public $estado, $estados;
 
     protected $listeners = ['render', 'delete'];
 
@@ -174,6 +176,8 @@ class Tareas extends Component
 
     public function render()
     {
+        $this->estado = Estados::all();
+        $this->estados = Estados::class;
         return view('livewire.tareas')->extends('layouts.plantilla_back')->section('contenido');
     }
 }
