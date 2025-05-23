@@ -17,7 +17,6 @@ return new class extends Migration
             $table->text('descripcion')->nullable();
             $table->date('fecha_inicio')->nullable();
             $table->date('fecha_fin')->nullable();
-            $table->dateTime('fecha_creacion')->nullable();
             $table->integer('id_estado')->nullable();
             $table->timestamps();
         });

@@ -16,7 +16,11 @@ class Proyectos extends Model
 
     public $fillable = [
         'id',
-        'nombre',
+        'titulo',
+        'descripcion',
+        'fecha_inicio',
+        'fecha_fin',
+        'id_estado',
         'created_at',
         'updated_at'
     ];

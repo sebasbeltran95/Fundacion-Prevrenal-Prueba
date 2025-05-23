@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Estados;
 use App\Models\Prioridades;
 use App\Models\Proyectos as ModelsProyectos;
 use Livewire\Component;
@@ -13,10 +14,10 @@ class Proyectos extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    public $nombre;
-    public $idx, $nombrex;
+    public $titulo, $descripcion, $fecha_inicio, $fecha_fin, $id_estado;
+    public $idx, $titulox, $descripcionx, $fecha_iniciox, $fecha_finx, $id_estadox;
     public $search  = "";
-
+    public $estado, $estados;
 
     protected $listeners = ['render', 'delete'];
 
@@ -49,7 +50,7 @@ class Proyectos extends Component
             ]);
 
         
-            $user = new Categorias();
+            $user = new ModelsProyectos();
             $user->nombre =  $this->nombre;
             $user->save();
 
@@ -86,7 +87,7 @@ class Proyectos extends Component
                 'nombrex.max' => 'El campo Nombre debe contener maximo 255 caracteres',
             ]);
 
-            $data = Categorias::find($this->idx);
+            $data = ModelsProyectos::find($this->idx);
             $data->nombre = $this->nombrex;
     
             $data->save();
@@ -105,6 +106,8 @@ class Proyectos extends Component
 
     public function render()
     {
+        $this->estado = Estados::all();
+        $this->estados = Estados::class;
         return view('livewire.proyectos')->extends('layouts.plantilla_back')->section('contenido');
     }
 }
