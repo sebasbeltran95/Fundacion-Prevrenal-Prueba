@@ -26,7 +26,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($this->category as $cat)
+                            @forelse ($this->proyectos as $cat)
                                 <tr>
                                     <td class="text-center">{{ $cat->nombre }}</td>
                                     <td class="d-flex justify-content-center">
@@ -47,7 +47,7 @@
                             @endforelse
                         </tbody>
                     </table>
-                    {{ $this->category->links() }}
+                    {{ $this->proyectos->links() }}
                 </div>
             </div>
         </div>
