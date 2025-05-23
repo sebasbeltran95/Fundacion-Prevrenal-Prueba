@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Categoria;
+use App\Http\Livewire\Estados;
 use App\Http\Livewire\Tareas;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -23,7 +24,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['middleware' => ['auth']], function (){
     Route::get('/tareas', Tareas::class)->name('tareas');
     Route::get('/categoria', Categoria::class)->name('categoria');
-    // Route::get('/category', Category::class)->name('category');
+    Route::get('/estados', Estados::class)->name('estados');
     // Route::get('/perfil', Perfil::class)->name('perfil');
     // Route::get('/user', Usuarios::class)->name('user');
     // Route::get('/contactanosBack', ContactanosBack::class)->name('contactanosBack');
